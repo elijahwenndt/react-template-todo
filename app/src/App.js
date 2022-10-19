@@ -9,6 +9,7 @@ function App() {
   const [todo, setToDo] = useState([]);
   let nextId = todo.length;
  
+  let counter = 0
   return (
     <>
       <h1>TO DO</h1>
@@ -20,13 +21,13 @@ function App() {
         setValue('');
         setToDo([
           ...todo,
-          { id: `${value}_${nextId}_${keyNum++}`, value: value, }
+          { id: `${value}_${nextId}_${keyNum++}`, value: value, complete: false}
         ]);
       }}>Add</button>
        { console.log(todo) }
       <ul>
-        {todo.map((mappedArr)=> (
-          <li id={`${idNum++}`} key={mappedArr.id}>{mappedArr.value}{' '}
+        {todo.map((mappedArr, i)=> (
+          <li className = {mappedArr.complete ? 'text-decoration-line-through' : ''}key={mappedArr.id}>{mappedArr.value}{' '}
           <button onClick={() => {
             
             
@@ -38,12 +39,19 @@ function App() {
             }}>
               Delete
             </button>
-            <input className="form-check-input" type='checkbox' onClick={() => {document.getElementById('idNu')}}></input>
+            <input className="form-check-input" type='checkbox' checked={mappedArr.complete ? true : false} onClick={() => {
+              todo[i].complete = !todo[i].complete
+              setToDo([
+                ...todo
+              ])
+              
+            }}></input>
             {/* {console.log(todo)} */}
           </li>
           
         ))}
       </ul>
+
     </>
   );
 }
