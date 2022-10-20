@@ -7,7 +7,7 @@ export default function Submission (props) {
       <button
         onClick={() => {
           props.todo.forEach((allTrue) => (allTrue.complete = true));
-          props.setToDo([...todo]);
+          props.setToDo([...props.todo]);
         }}
       >
         check all
