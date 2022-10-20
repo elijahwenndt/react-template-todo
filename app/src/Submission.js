@@ -14,7 +14,7 @@ export default function Submission(props) {
       <button
         onClick={() => {
           props.todo.forEach((allFalse) => (allFalse.complete = false));
-          props.setToDo([...todo]);
+          props.setToDo([...props.todo]);
         }}
       >
         uncheck all
