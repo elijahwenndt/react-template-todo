@@ -5,11 +5,16 @@ let keyNum = 0;
 function App() {
   const [value, setValue] = useState("");
   const [todo, setToDo] = useState([]);
+  const [page, setPage] = useState("All");
 
   let completeCounter = todo.filter(
     (totalComplete) => totalComplete.complete).length;
   console.log(completeCounter);
-
+  const buttonFilter = [
+    "All",
+    "Completed",
+    "ToDo",
+  ];
   return (
     <>
       <h1>TO DO</h1>
