@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Filtertodo from './Filtertodo'
 import Statebutton from './Statebutton'
-
+import Submission from './Submission'
 let keyNum = 0;
 
 function App() {
@@ -23,7 +23,8 @@ function App() {
   }
   return (
     <>
-      <h1>TO DO</h1>
+      <Submission value={value} setValue={setValue} todo={todo} setToDo={setToDo}/>
+      {/* <h1>TO DO</h1>
       <h2>tasks completed: {completeCounter}</h2>
       <button
         onClick={() => {
@@ -52,8 +53,8 @@ function App() {
         }}
       >
         Add
-      </button>
-      <Filtertodo todo={todo} page={page} setToDo={setToDo}/>
+      </button> */}
+      <Filtertodo todo={todo} page={page} setToDo={setToDo} />
       {console.log(todo)}
       {/* <ul>
         {todo.map((mappedArr, i) => (
