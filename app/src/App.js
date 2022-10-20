@@ -7,8 +7,7 @@ function App() {
   const [todo, setToDo] = useState([]);
 
   let completeCounter = todo.filter(
-    (totalComplete) => totalComplete.complete
-  ).length;
+    (totalComplete) => totalComplete.complete).length;
   console.log(completeCounter);
 
   return (
@@ -19,11 +18,14 @@ function App() {
         onClick={() => {
           todo.forEach((allTrue) => (allTrue.complete = true));
           setToDo([...todo]);
-          console.log(todo);
         }}
       >
-        complete all
+        check all
       </button>
+      <button onClick={() => {
+        todo.forEach((allFalse) => (allFalse.complete = false));
+        setToDo([...todo]);
+      }}>uncheck all</button>
       <input value={value} onChange={(e) => setValue(e.target.value)} />
       <button
         onClick={() => {
@@ -70,6 +72,12 @@ function App() {
           </li>
         ))}
       </ul>
+      <button onClick = {() => {
+        setToDo(
+          todo.filter(deleteComplete => deleteComplete.complete === false)
+        )
+      }}>delete all completed</button>
+      
     </>
   );
 }
