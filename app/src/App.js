@@ -1,20 +1,26 @@
 import { useState } from "react";
+import Filtertodo from './Filtertodo'
+import Statebutton from './Statebutton'
 
 let keyNum = 0;
 
 function App() {
   const [value, setValue] = useState("");
   const [todo, setToDo] = useState([]);
-  const [page, setPage] = useState("All");
+  const [page, setPage] = useState("false");
 
   let completeCounter = todo.filter(
     (totalComplete) => totalComplete.complete).length;
   console.log(completeCounter);
+
   const buttonFilter = [
     "All",
     "Completed",
     "ToDo",
   ];
+  function handleClick(text) {
+    setPage(text);
+  }
   return (
     <>
       <h1>TO DO</h1>
@@ -47,8 +53,9 @@ function App() {
       >
         Add
       </button>
+      <Filtertodo todo={todo} page={page} setToDo={setToDo}/>
       {console.log(todo)}
-      <ul>
+      {/* <ul>
         {todo.map((mappedArr, i) => (
           <li
             className={mappedArr.complete ? "text-decoration-line-through" : ""}
@@ -76,13 +83,15 @@ function App() {
             ></input>
           </li>
         ))}
-      </ul>
+      </ul> */}
       <button onClick = {() => {
         setToDo(
           todo.filter(deleteComplete => deleteComplete.complete === false)
         )
       }}>delete all completed</button>
-      
+      {buttonFilter.map((buttons) => (
+        <Statebutton text={buttons} handleClick={handleClick} />
+      ))}
     </>
   );
 }
