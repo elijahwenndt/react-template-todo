@@ -1,8 +1,7 @@
-export default function Submission (props) {
-
-    return (
-        <>
-    <h1>TO DO</h1>
+export default function Submission(props) {
+  return (
+    <>
+      <h1>TO DO</h1>
       <h2>tasks completed: {props.completeCounter}</h2>
       <button
         onClick={() => {
@@ -12,11 +11,18 @@ export default function Submission (props) {
       >
         check all
       </button>
-      <button onClick={() => {
-        props.todo.forEach((allFalse) => (allFalse.complete = false));
-        props.setToDo([...todo]);
-      }}>uncheck all</button>
-      <input value={props.value} onChange={(e) => props.setValue(e.target.value)} />
+      <button
+        onClick={() => {
+          props.todo.forEach((allFalse) => (allFalse.complete = false));
+          props.setToDo([...todo]);
+        }}
+      >
+        uncheck all
+      </button>
+      <input
+        value={props.value}
+        onChange={(e) => props.setValue(e.target.value)}
+      />
       <button
         onClick={() => {
           props.setValue("");
@@ -32,6 +38,6 @@ export default function Submission (props) {
       >
         Add
       </button>
-      </>
-    )
+    </>
+  );
 }
