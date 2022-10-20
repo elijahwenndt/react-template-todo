@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Filtertodo from "./Filtertodo";
 import Statebutton from "./Statebutton";
 import Submission from "./Submission";
 let keyNum = 0;
-
+// getlocalstorage
 function App() {
   const [value, setValue] = useState("");
-  const [todo, setToDo] = useState([]);
+  const [todo, setToDo] = useState([]); 
   const [page, setPage] = useState();
-
+  // useEffect(() => {
+  //   setlocalstorage
+  // },[todo])
   console.log(page);
 
   let completeCounter = todo.filter(
