@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Filtertodo from "./Filtertodo";
 import Statebutton from "./Statebutton";
 import Submission from "./Submission";
 let keyNum = 0;
-
+// getlocalstorage
 function App() {
   const [value, setValue] = useState("");
-  const [todo, setToDo] = useState([]);
+  const [todo, setToDo] = useState(()=>{
+    return JSON.parse(localStorage.getItem('data')) || []}); 
   const [page, setPage] = useState();
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(todo))
+  },[todo])
 
   console.log(page);
 
