@@ -6,11 +6,14 @@ let keyNum = 0;
 // getlocalstorage
 function App() {
   const [value, setValue] = useState("");
-  const [todo, setToDo] = useState([]); 
+  const [todo, setToDo] = useState(()=>{
+    return JSON.parse(localStorage.getItem('data')) || []}); 
   const [page, setPage] = useState();
-  // useEffect(() => {
-  //   setlocalstorage
-  // },[todo])
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(todo))
+  },[todo])
+
   console.log(page);
 
   let completeCounter = todo.filter(

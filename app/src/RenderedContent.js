@@ -1,6 +1,6 @@
 export default function (props) {
   return (
-    <li
+    <div
       className={props.mappedArr.complete ? "text-decoration-line-through" : ""}
       key={props.mappedArr.id}
     >
@@ -26,6 +26,6 @@ export default function (props) {
           props.setToDo([...props.todo]);
         }}
       ></input>
-    </li>
+    </div>
   );
 }
