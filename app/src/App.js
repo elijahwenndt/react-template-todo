@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Filtertodo from "./Filtertodo";
 import Statebutton from "./Statebutton";
 import Submission from "./Submission";
-let keyNum = 0;
-// getlocalstorage
+
+
 function App() {
   const [value, setValue] = useState("");
   const [todo, setToDo] = useState(()=>{
@@ -14,7 +14,7 @@ function App() {
     localStorage.setItem('data', JSON.stringify(todo))
   },[todo])
 
-  console.log(page);
+  // console.log(page);
 
   let completeCounter = todo.filter(
     (totalComplete) => totalComplete.complete
@@ -33,9 +33,13 @@ function App() {
         setToDo={setToDo}
         completeCounter={completeCounter}
       />
-
-      <Filtertodo todo={todo} page={page} bool={page} setToDo={setToDo} />
-      {console.log(todo)}
+    <div className="container">
+      <div className="row">
+        <div className="col-6"><Filtertodo todo={todo} page={page} bool={page} setToDo={setToDo} /></div>
+      </div>
+    </div>
+      {/* <Filtertodo todo={todo} page={page} bool={page} setToDo={setToDo} /> */}
+      
 
       <button
         onClick={() => {
